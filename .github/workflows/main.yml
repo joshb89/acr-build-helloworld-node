@@ -14,6 +14,9 @@ jobs:
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
         
+        - name: Log in to Oracle Container Registry
+          run: echo "${{ secrets.ORACLE_PASSWORD }}" | docker login container-registry.oracle.com -u "${{ secrets.ORACLE_USERNAME }}" --password-stdin
+
         - name: 'Build and push image'
           uses: azure/docker-login@v1
           with:
