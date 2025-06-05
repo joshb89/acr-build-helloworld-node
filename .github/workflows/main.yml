@@ -58,3 +58,4 @@ jobs:
             registry-password: ${{ secrets.REGISTRY_PASSWORD }}
             name: aci-sampleapp
             location: 'central us'
+            ports: 9091
