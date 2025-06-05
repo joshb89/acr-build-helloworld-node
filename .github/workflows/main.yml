@@ -23,8 +23,8 @@ jobs:
               password: ${{ secrets.ORACLE_PASSWORD }}
 
         
-        - name: Pull base image manually
-          run: docker pull container-registry.oracle.com/fdi/remoteagent:22.5.0  
+        #- name: Pull base image manually
+          #run: docker pull container-registry.oracle.com/fdi/remoteagent:22.5.0  
 
             
         - name: 'Build and push image'
