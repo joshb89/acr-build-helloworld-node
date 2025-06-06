@@ -59,3 +59,8 @@ jobs:
             ports: 9091
             cpu: 4
             memory: 8
+            #Volume Mount
+            #azure-file-volume-share-name: 
+            #azure-file-volume-account-name: 
+            #azure-file-volume-account-key: 
+            #azure-file-volume-mount-path: /faw/software/remoteagent/config/
