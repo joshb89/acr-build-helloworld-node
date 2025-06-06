@@ -1,6 +1,9 @@
 on: [push]
 name: Linux_Container_Workflow
 
+env:
+    container_version: 22.5.0
+    
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
@@ -24,7 +27,7 @@ jobs:
 
         
         - name: Pull base image manually
-          run: docker pull container-registry.oracle.com/fdi/remoteagent:22.5.0  
+          run: docker pull container-registry.oracle.com/fdi/remoteagent:$container_version
 
             
         - name: 'Build and push image'
@@ -36,7 +39,7 @@ jobs:
 
         - run: |
             docker build . \
-              --build-arg BASE_IMAGE=container-registry.oracle.com/fdi/remoteagent:22.5.0 \
+              --build-arg BASE_IMAGE=container-registry.oracle.com/fdi/remoteagent:$container_version \
               -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}            
         - name: 'Push Docker image to ACR'
           run: |
