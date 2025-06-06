@@ -33,12 +33,7 @@ jobs:
             login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
-        #- run: |
-            #docker build -t remoteagent .
-            #docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/remoteagent:${{ github.sha }}
-        #- run: |
-            #docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
-            #docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
+
         - run: |
             docker build . \
               --build-arg BASE_IMAGE=container-registry.oracle.com/fdi/remoteagent:22.5.0 \
