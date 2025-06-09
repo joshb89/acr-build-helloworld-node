@@ -59,7 +59,6 @@ jobs:
             ports: 9091
             cpu: 4
             memory: 8
-            #Volume Mount
             azure-file-volume-share-name: ${{ secrets.FILE_SHARE_NAME }} 
             azure-file-volume-account-name: ${{ secrets.STORAGE_ACCOUNT_NAME }} 
             azure-file-volume-account-key: ${{ secrets.STORAGE_ACCOUNT_KEY }} 
