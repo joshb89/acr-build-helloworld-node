@@ -73,11 +73,10 @@ jobs:
             parameters: >
               containerName=aci-sampleapp
               imageName=${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
-              azureFileVolume1ShareName=${{ secrets.FILE_SHARE_NAME }}
-              azureFileVolume1AccountName=${{ secrets.STORAGE_ACCOUNT_NAME }}
-              azureFileVolume1AccountKey=${{ secrets.STORAGE_ACCOUNT_KEY }}
-              azureFileVolume1MountPath=/faw/logs/RemoteAgent/
-              azureFileVolume2ShareName=${{ secrets.FILE_SHARE_NAME2 }}
-              azureFileVolume2AccountName=${{ secrets.STORAGE_ACCOUNT_NAME }}
-              azureFileVolume2AccountKey=${{ secrets.STORAGE_ACCOUNT_KEY }}
-              azureFileVolume2MountPath=/faw/data/
+              location=your-location-here
+              storageAccountName1=${{ secrets.STORAGE_ACCOUNT_NAME }}
+              storageAccountKey1=${{ secrets.STORAGE_ACCOUNT_KEY }}
+              fileShareName1=${{ secrets.FILE_SHARE_NAME }}
+              storageAccountName2=${{ secrets.STORAGE_ACCOUNT_NAME }}
+              storageAccountKey2=${{ secrets.STORAGE_ACCOUNT_KEY }}
+              fileShareName2=${{ secrets.FILE_SHARE_NAME2 }}
