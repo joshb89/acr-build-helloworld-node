@@ -45,25 +45,39 @@ jobs:
           run: |
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
             
-        - name: 'Deploy to Azure Container Instances'
-          uses: 'azure/aci-deploy@v1'
+        # - name: 'Deploy to Azure Container Instances'
+        #   uses: 'azure/aci-deploy@v1'
+        #   with:
+        #     resource-group: ${{ secrets.RESOURCE_GROUP }}
+        #     dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
+        #     image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
+        #     registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        #     registry-username: ${{ secrets.REGISTRY_USERNAME }}
+        #     registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+        #     name: aci-sampleapp
+        #     location: 'central us'
+        #     ports: 9091
+        #     cpu: 4
+        #     memory: 8
+        #     azure-file-volume-share-name: ${{ secrets.FILE_SHARE_NAME }} 
+        #     azure-file-volume-account-name: ${{ secrets.STORAGE_ACCOUNT_NAME }} 
+        #     azure-file-volume-account-key: ${{ secrets.STORAGE_ACCOUNT_KEY }} 
+        #     azure-file-volume-mount-path: /faw/logs/RemoteAgent/
+
+        - name: 'Deploy ACI with multiple volumes'
+          uses: azure/arm-deploy@v1
           with:
-            resource-group: ${{ secrets.RESOURCE_GROUP }}
-            dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
-            image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
-            registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-            registry-username: ${{ secrets.REGISTRY_USERNAME }}
-            registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-            name: aci-sampleapp
-            location: 'central us'
-            ports: 9091
-            cpu: 4
-            memory: 8
-            azure-file-volume-share-name: ${{ secrets.FILE_SHARE_NAME2 }} 
-            azure-file-volume-account-name: ${{ secrets.STORAGE_ACCOUNT_NAME }} 
-            azure-file-volume-account-key: ${{ secrets.STORAGE_ACCOUNT_KEY }} 
-            azure-file-volume-mount-path: /faw/logs/RemoteAgent/
-            #azure-file-volume-share-name2: ${{ secrets.FILE_SHARE_NAME2 }} 
-            #azure-file-volume-account-name2: ${{ secrets.STORAGE_ACCOUNT_NAME }} 
-            #azure-file-volume-account-key2: ${{ secrets.STORAGE_ACCOUNT_KEY }} 
-            #azure-file-volume-mount-path2: /faw/logs/RemoteAgent/
+            scope: resourceGroup
+            resourceGroupName: ${{ secrets.RESOURCE_GROUP }}
+            template: ./aci-multi-volume.json
+            parameters: >
+              containerName=aci-sampleapp
+              imageName=${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
+              azureFileVolume1ShareName=${{ secrets.FILE_SHARE_NAME }}
+              azureFileVolume1AccountName=${{ secrets.STORAGE_ACCOUNT_NAME }}
+              azureFileVolume1AccountKey=${{ secrets.STORAGE_ACCOUNT_KEY }}
+              azureFileVolume1MountPath=/faw/logs/RemoteAgent/
+              azureFileVolume2ShareName=${{ secrets.FILE_SHARE_NAME2 }}
+              azureFileVolume2AccountName=${{ secrets.STORAGE_ACCOUNT_NAME }}
+              azureFileVolume2AccountKey=${{ secrets.STORAGE_ACCOUNT_KEY }}
+              azureFileVolume2MountPath=/faw/data/
