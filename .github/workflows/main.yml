@@ -67,7 +67,7 @@ jobs:
         - name: 'Deploy ACI with multiple volumes'
           uses: azure/arm-deploy@v1
           with:
-            scope: resourceGroup
+            scope: resourcegroup
             resourceGroupName: ${{ secrets.RESOURCE_GROUP }}
             template: ./aci-multi-volume.json
             parameters: >
