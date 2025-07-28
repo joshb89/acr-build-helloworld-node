@@ -20,12 +20,6 @@
     "fileShareName1": {
       "type": "string"
     },
-    "storageAccountName2": {
-      "type": "string"
-    },
-    "storageAccountKey2": {
-      "type": "securestring"
-    },
     "fileShareName2": {
       "type": "string"
     }
