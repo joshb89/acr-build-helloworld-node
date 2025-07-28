@@ -78,7 +78,7 @@
         },
         "volumes": [
           {
-            "name": "volume1",
+            "name": "config",
             "azureFile": {
               "shareName": "[parameters('fileShareName1')]",
               "storageAccountName": "[parameters('storageAccountName1')]",
@@ -86,11 +86,11 @@
             }
           },
           {
-            "name": "volume2",
+            "name": "remoteagent",
             "azureFile": {
               "shareName": "[parameters('fileShareName2')]",
-              "storageAccountName": "[parameters('storageAccountName2')]",
-              "storageAccountKey": "[parameters('storageAccountKey2')]"
+              "storageAccountName": "[parameters('storageAccountName1')]",
+              "storageAccountKey": "[parameters('storageAccountKey1')]"
             }
           }
         ]

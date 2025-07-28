@@ -77,6 +77,4 @@ jobs:
               storageAccountName1=${{ secrets.STORAGE_ACCOUNT_NAME }}
               storageAccountKey1=${{ secrets.STORAGE_ACCOUNT_KEY }}
               fileShareName1=${{ secrets.FILE_SHARE_NAME }}
-              storageAccountName2=${{ secrets.STORAGE_ACCOUNT_NAME }}
-              storageAccountKey2=${{ secrets.STORAGE_ACCOUNT_KEY }}
               fileShareName2=${{ secrets.FILE_SHARE_NAME2 }}
