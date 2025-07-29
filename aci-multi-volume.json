@@ -11,18 +11,18 @@
     "location": {
       "type": "string"
     },
-    // "storageAccountName": {
-    //   "type": "string"
-    // },
-     "storageAccountKey": {
-       "type": "securestring"
-     }
-    // "fileShareName1": {
-    //   "type": "string"
-    // },
-    // "fileShareName2": {
-    //   "type": "string"
-    // }
+    "storageAccountKey": {
+      "type": "securestring"
+    },
+    "registryServer": {
+      "type": "string"
+    },
+    "registryUsername": {
+      "type": "string"
+    },
+    "registryPassword": {
+      "type": "securestring"
+    }
   },
   "resources": [
     {
@@ -70,26 +70,33 @@
             }
           ]
         },
-                "volumes": [
-                    {
-                        "name": "config",
-                        "azureFile": {
-                            "shareName": "config",
-                            "readOnly": false,
-                            "storageAccountName": "fawpoc",
-                            "storageAccountKey": "[parameters('storageAccountKey')]"
-                        }
-                    },
-                    {
-                        "name": "remoteagent",
-                        "azureFile": {
-                            "shareName": "remoteagent",
-                            "readOnly": false,
-                            "storageAccountName": "fawpoc",
-                            "storageAccountKey": "[parameters('storageAccountKey')]"
-                        }
-                    }
-                ]
+        "imageRegistryCredentials": [
+          {
+            "server": "[parameters('registryServer')]",
+            "username": "[parameters('registryUsername')]",
+            "password": "[parameters('registryPassword')]"
+          }
+        ],
+        "volumes": [
+          {
+            "name": "config",
+            "azureFile": {
+              "shareName": "config",
+              "readOnly": false,
+              "storageAccountName": "fawpoc",
+              "storageAccountKey": "[parameters('storageAccountKey')]"
+            }
+          },
+          {
+            "name": "remoteagent",
+            "azureFile": {
+              "shareName": "remoteagent",
+              "readOnly": false,
+              "storageAccountName": "fawpoc",
+              "storageAccountKey": "[parameters('storageAccountKey')]"
+            }
+          }
+        ]
       }
     }
   ]

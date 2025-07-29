@@ -73,6 +73,9 @@ jobs:
             parameters: >
               containerName=aci-sampleapp
               imageName=${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
+              registryServer=${{ secrets.REGISTRY_LOGIN_SERVER }}
+              registryUsername=${{ secrets.REGISTRY_USERNAME }}
+              registryPassword=${{ secrets.REGISTRY_PASSWORD }}
               location=centralus
               storageAccountKey=${{ secrets.STORAGE_ACCOUNT_KEY }}
 
