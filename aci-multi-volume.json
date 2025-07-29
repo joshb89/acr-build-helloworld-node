@@ -76,7 +76,7 @@
                         "azureFile": {
                             "shareName": "config",
                             "readOnly": false,
-                            "storageAccountName": "stisfawcontainerdev"
+                            "storageAccountName": "fawpoc"
                         }
                     },
                     {
@@ -84,7 +84,7 @@
                         "azureFile": {
                             "shareName": "remoteagent",
                             "readOnly": false,
-                            "storageAccountName": "stisfawcontainerdev"
+                            "storageAccountName": "fawpoc"
                         }
                     }
                 ]
