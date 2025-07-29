@@ -10,13 +10,13 @@
     },
     "location": {
       "type": "string"
-    }
-    // "storageAccountName1": {
+    },
+    // "storageAccountName": {
     //   "type": "string"
     // },
-    // "storageAccountKey1": {
-    //   "type": "securestring"
-    // },
+     "storageAccountKey": {
+       "type": "securestring"
+     },
     // "fileShareName1": {
     //   "type": "string"
     // },
@@ -76,7 +76,8 @@
                         "azureFile": {
                             "shareName": "config",
                             "readOnly": false,
-                            "storageAccountName": "fawpoc"
+                            "storageAccountName": "fawpoc",
+                            "storageAccountKey": "[parameters('storageAccountKey')]"
                         }
                     },
                     {
@@ -84,7 +85,8 @@
                         "azureFile": {
                             "shareName": "remoteagent",
                             "readOnly": false,
-                            "storageAccountName": "fawpoc"
+                            "storageAccountName": "fawpoc",
+                            "storageAccountKey": "[parameters('storageAccountKey')]"
                         }
                     }
                 ]
