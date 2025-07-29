@@ -11,18 +11,18 @@
     "location": {
       "type": "string"
     },
-    "storageAccountName1": {
-      "type": "string"
-    },
-    "storageAccountKey1": {
-      "type": "securestring"
-    },
-    "fileShareName1": {
-      "type": "string"
-    },
-    "fileShareName2": {
-      "type": "string"
-    }
+    // "storageAccountName1": {
+    //   "type": "string"
+    // },
+    // "storageAccountKey1": {
+    //   "type": "securestring"
+    // },
+    // "fileShareName1": {
+    //   "type": "string"
+    // },
+    // "fileShareName2": {
+    //   "type": "string"
+    // }
   },
   "resources": [
     {
@@ -70,24 +70,24 @@
             }
           ]
         },
-        "volumes": [
-          {
-            "name": "config",
-            "azureFile": {
-              "shareName": "[parameters('fileShareName1')]",
-              "storageAccountName": "[parameters('storageAccountName1')]",
-              "storageAccountKey": "[parameters('storageAccountKey1')]"
-            }
-          },
-          {
-            "name": "remoteagent",
-            "azureFile": {
-              "shareName": "[parameters('fileShareName2')]",
-              "storageAccountName": "[parameters('storageAccountName1')]",
-              "storageAccountKey": "[parameters('storageAccountKey1')]"
-            }
-          }
-        ]
+                "volumes": [
+                    {
+                        "name": "fileshareconfig",
+                        "azureFile": {
+                            "shareName": "config",
+                            "readOnly": false,
+                            "storageAccountName": "stisfawcontainerdev"
+                        }
+                    },
+                    {
+                        "name": "fileshareremoteagent",
+                        "azureFile": {
+                            "shareName": "remoteagent",
+                            "readOnly": false,
+                            "storageAccountName": "stisfawcontainerdev"
+                        }
+                    }
+                ]
       }
     }
   ]

@@ -10,7 +10,7 @@ jobs:
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@main
+          uses: actions/checkout@v4
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
@@ -73,8 +73,8 @@ jobs:
             parameters: >
               containerName=aci-sampleapp
               imageName=${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
-              location=your-location-here
-              storageAccountName1=${{ secrets.STORAGE_ACCOUNT_NAME }}
-              storageAccountKey1=${{ secrets.STORAGE_ACCOUNT_KEY }}
-              fileShareName1=${{ secrets.FILE_SHARE_NAME }}
-              fileShareName2=${{ secrets.FILE_SHARE_NAME2 }}
+              location=centralus
+              # storageAccountName1=${{ secrets.STORAGE_ACCOUNT_NAME }}
+              # storageAccountKey1=${{ secrets.STORAGE_ACCOUNT_KEY }}
+              # fileShareName1=${{ secrets.FILE_SHARE_NAME }}
+              # fileShareName2=${{ secrets.FILE_SHARE_NAME2 }}
