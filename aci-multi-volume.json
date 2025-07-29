@@ -10,7 +10,7 @@
     },
     "location": {
       "type": "string"
-    },
+    }
     // "storageAccountName1": {
     //   "type": "string"
     // },
@@ -49,11 +49,11 @@
               ],
               "volumeMounts": [
                 {
-                  "name": "volume1",
+                  "name": "fileshareremoteagent",
                   "mountPath": "/faw/logs/RemoteAgent/"
                 },
                 {
-                  "name": "volume2",
+                  "name": "fileshareconfig",
                   "mountPath": "/faw/software/remoteagent/config/"
                 }
               ]

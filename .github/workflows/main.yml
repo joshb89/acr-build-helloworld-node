@@ -74,7 +74,6 @@ jobs:
               containerName=aci-sampleapp
               imageName=${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
               location=centralus
-              # storageAccountName1=${{ secrets.STORAGE_ACCOUNT_NAME }}
-              # storageAccountKey1=${{ secrets.STORAGE_ACCOUNT_KEY }}
-              # fileShareName1=${{ secrets.FILE_SHARE_NAME }}
-              # fileShareName2=${{ secrets.FILE_SHARE_NAME2 }}
+
+
+
