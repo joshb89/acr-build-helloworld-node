@@ -16,7 +16,7 @@
     // },
      "storageAccountKey": {
        "type": "securestring"
-     },
+     }
     // "fileShareName1": {
     //   "type": "string"
     // },
