@@ -49,11 +49,11 @@
               ],
               "volumeMounts": [
                 {
-                  "name": "fileshareremoteagent",
+                  "name": "remoteagent",
                   "mountPath": "/faw/logs/RemoteAgent/"
                 },
                 {
-                  "name": "fileshareconfig",
+                  "name": "config",
                   "mountPath": "/faw/software/remoteagent/config/"
                 }
               ]
@@ -72,7 +72,7 @@
         },
                 "volumes": [
                     {
-                        "name": "fileshareconfig",
+                        "name": "config",
                         "azureFile": {
                             "shareName": "config",
                             "readOnly": false,
@@ -80,7 +80,7 @@
                         }
                     },
                     {
-                        "name": "fileshareremoteagent",
+                        "name": "remoteagent",
                         "azureFile": {
                             "shareName": "remoteagent",
                             "readOnly": false,
